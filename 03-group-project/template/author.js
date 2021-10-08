@@ -31,7 +31,14 @@ const createPostElement = (thumbnail, post) => {
 
 const renderPosts = async() => {
     // EDIT HERE
-    Module.getPostsByAuthor(Module.author_id)
+
+    let users = await Module.getAuthor()
+    console.log(users)
+    let dataUser = users.results
+    let html = ''
+    Array.from(dataUser).forEach(post => {
+        createPostElement(post)
+    })
 };
 
 renderPosts();
