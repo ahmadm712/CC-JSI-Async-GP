@@ -1,5 +1,6 @@
-import { getPost } from "./helpers.js"
+import { getAuthor, getPost, getPostComments, getRandomPic } from "./helpers.js"
 const post_id = ''; // tempat menampung parameter yang ada
+const params; // tempat menampung parameter yang ada
 
 const elPageTitle = document.querySelector('#page-title');
 const elDetailBerita = document.querySelector('#detail-berita');
@@ -14,6 +15,7 @@ const elListGroup = document.querySelector('#list-group');
 
 
 const createListElement = (comment) => {
+
   const elListItem = document.createElement('div');
   const elListItemContainer = document.createElement('div');
   const elListItemTitle = document.createElement('div');
@@ -30,24 +32,30 @@ const createListElement = (comment) => {
   elListItemContainer.appendChild(elListItemText);
   elListItem.appendChild(elListItemContainer);
 
+  elDetailBerita.appendChild(elListItemContainer);
+
   return elListItem;
+
+  
+
 };
 
+
+
 const renderPost = async (post_id) => {
+
   // EDIT HERE
-  let post = await getPost(2)
-  console.log(post);
-    // fetch(`https://jsonplaceholder.typicode.com/posts/${post_id}`)
-    //           .then(response => response.json())
-    //           .then(data => {
-    //               console.log(data);
-    //               console.log(data.title);
-    //           })
-    //           .catch(err => {
-    //               console.log(err);
-    //           })
-              
-    }
+  let post = await getPost(post_id)
+  let comment = await getPostComments(post_id)
+  let pic = await getRandomPic()
+  let author = await getAuthor(post_id)
+  
+  
+
+};
+elDetailBerita.appendChild(elListItemContainer);
+
+console.log(author);
 
 
-  renderPost();
+  renderPost(2);
