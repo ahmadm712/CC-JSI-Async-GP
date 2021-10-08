@@ -1,7 +1,7 @@
 export const getPosts = async () => {
   try {
     const posts = await fetch(
-      "https://jsonplaceholder.typicode.com/posts"
+      "https://jsonplaceholder.typicode.com/posts?_start=0&_limit=16"
     ).then((response) => response.json());
     return posts;
   } catch (error) {
