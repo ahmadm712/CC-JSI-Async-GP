@@ -31,10 +31,13 @@ const createPostElement = (thumbnail, post) => {
 
 const renderPosts = async() => {
     // EDIT HERE
-    for (let i = 1; i < 10; i++) {
-      let users = await getAuthor(i)
+    for (let i = 1; i < 11; i++) {
+        let users = await getAuthor(i)
+        let posts = await getPostsByAuthor(users.id)
         console.log(users)
+        console.log(posts)
     }
+
 
 };
 
