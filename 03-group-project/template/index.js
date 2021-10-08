@@ -34,15 +34,20 @@ const createPostElement = (thumbnail, post) => {
 
   document.getElementById("daftar-berita").appendChild(elCol);
 
-  // return elCol;
+  elCardTitle.innerHTML = post.title;
+  elCardImg.setAttribute("src", thumbnail);
+  elCardBtn.setAttribute("href", `/post.html?post_id=${post.id}`);
+
+  return elCol;
 };
-createPostElement();
 
 const renderPosts = async () => {
-  let post = await getPosts();
-  // console.log(post);
-  let dataPost = post.(post.length[0]);
-  console.log(dataPost);
+  // EDIT HERE
+  let posts = await getPosts();
+  posts.map(async (value) => {
+    let pic = await getRandomPic();
+    elDaftarBerita.appendChild(createPostElement(pic, value));
+  });
 };
 
 renderPosts();
