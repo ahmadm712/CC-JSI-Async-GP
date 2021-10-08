@@ -33,7 +33,6 @@ const createPostElement = (thumbnail, post) => {
   elCol.appendChild(elCard);
 
   document.getElementById("daftar-berita").appendChild(elCol);
-
   elCardTitle.innerHTML = post.title;
   elCardImg.setAttribute("src", thumbnail);
   elCardBtn.setAttribute("href", `/post.html?post_id=${post.id}`);
