@@ -1,8 +1,11 @@
 export const getPosts = async () => {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "GET",
-    });
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts?_start=0&_limit=16",
+      {
+        method: "GET",
+      }
+    );
     const jsonPost = await response.json();
     return jsonPost;
   } catch (error) {
