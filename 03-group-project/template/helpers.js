@@ -1,60 +1,61 @@
 export const getPosts = async () => {
   try {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/posts?_start=0&_limit=16",
-      {
-        method: "GET",
-      }
-    );
-    const jsonPost = await response.json();
-    return jsonPost;
+    const posts = await fetch(
+      "https://jsonplaceholder.typicode.com/posts"
+    ).then((response) => response.json());
+    return posts;
   } catch (error) {
-    console.log(error);
+    console.log("Error ", error);
+    throw error;
   }
 };
 
 export const getPost = async (post_id) => {
-  // EDIT HERE
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${post_id}`, {
-      method: "GET",
-    });
-    const jsonPost = await response.json()
-    return jsonPost
+    const post = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/" + post_id
+    ).then((response) => response.json());
+    return post;
   } catch (error) {
-    console.log(error)
+    console.log("Error ", error);
+    throw error;
   }
 };
 
 export const getPostComments = async (post_id) => {
-  // EDIT HERE
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/comments/${post_id}`, {
-      method: "GET",
-    });
-    const jsonPost = await response.json();
-    return jsonPost;
+    const comment = await fetch(
+      "https://jsonplaceholder.typicode.com/comments?postId=" + post_id
+    ).then((response) => response.json());
+    return comment;
   } catch (error) {
-    console.log(error);
+    console.log("Error ", error);
+    throw error;
   }
 };
 
 export const getAuthor = async (user_id) => {
-  // EDIT HERE
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${user_id}`, {
-      method: "GET",
-    });
-    const jsonPost = await response.json();
-    return jsonPost;
+    const author = await fetch(
+      "https://jsonplaceholder.typicode.com/users/" + user_id
+    ).then((response) => response.json());
+    return author;
   } catch (error) {
-    console.log(error);
+    console.log("Error ", error);
+    throw error;
   }
-
 };
 
 export const getPostsByAuthor = async (author_id) => {
-  // EDIT HERE
+  try {
+    const post = await fetch(
+      "https://jsonplaceholder.typicode.com/users/" + author_id + "/posts"
+    ).then((response) => response.json());
+    return post;
+  } catch (error) {
+    console.log("Error ", error);
+    throw error;
+  }
 };
 
 export const getRandomPic = async () => {
