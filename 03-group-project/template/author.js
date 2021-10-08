@@ -1,6 +1,6 @@
 import { getAuthor, getPostsByAuthor } from './helpers.js';
 
-const params;
+const params = "";
 
 const elPageTitle = document.querySelector('#page-title');
 const elPostList = document.querySelector('#post-list');
@@ -31,11 +31,10 @@ const createPostElement = (thumbnail, post) => {
 
 const renderPosts = async() => {
     // EDIT HERE
-    let users = await getAuthor(1)
-
-    console.log(users);
-
-
+    for (let i = 1; i < 10; i++) {
+      let users = await getAuthor(i)
+        console.log(users)
+    }
 
 };
 
