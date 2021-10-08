@@ -13,7 +13,7 @@ export const getPostComments = async(post_id) => {
 export const getAuthor = async(user_id) => {
     // EDIT HERE
     try {
-        let response = await fetch(`https://jsonplaceholder.typicode.com/posts`, {
+        let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${user_id}`, {
             method: 'GET',
         });
         let jsonResponse = await response.json();
