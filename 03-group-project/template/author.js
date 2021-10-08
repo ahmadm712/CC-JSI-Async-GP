@@ -1,3 +1,5 @@
+import { getAuthor, getPostsByAuthor } from './helpers.js';
+
 const params;
 
 const elPageTitle = document.querySelector('#page-title');
@@ -6,11 +8,11 @@ const elLoading = document.querySelector('#loading');
 const elEmptyPost = document.querySelector('#empty-post');
 
 const createPostElement = (thumbnail, post) => {
-  const elCol = document.createElement('div');
-  elCol.classList.add('col-12');
-  elCol.insertAdjacentHTML(
-    'beforeend',
-    `<div class="card mb-3 w-100">
+    const elCol = document.createElement('div');
+    elCol.classList.add('col-12');
+    elCol.insertAdjacentHTML(
+        'beforeend',
+        `<div class="card mb-3 w-100">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="${thumbnail}" class="img-fluid rounded-start" alt="skilvul" />
@@ -24,11 +26,12 @@ const createPostElement = (thumbnail, post) => {
         </div>
       </div>
     </div>`
-  );
+    );
 };
 
-const renderPosts = async () => {
-  // EDIT HERE
+const renderPosts = async() => {
+    // EDIT HERE
+    Module.getPostsByAuthor(Module.author_id)
 };
 
 renderPosts();
