@@ -1,4 +1,5 @@
-const params; // tempat menampung parameter yang ada
+import { getPost } from "./helpers.js"
+const post_id = ''; // tempat menampung parameter yang ada
 
 const elPageTitle = document.querySelector('#page-title');
 const elDetailBerita = document.querySelector('#detail-berita');
@@ -10,6 +11,7 @@ const elCardAuthorImg = document.querySelector('#author-img');
 const elCardAuthorName = document.querySelector('#author-name');
 const elCardAuthorEmail = document.querySelector('#author-email');
 const elListGroup = document.querySelector('#list-group');
+
 
 const createListElement = (comment) => {
   const elListItem = document.createElement('div');
@@ -31,8 +33,21 @@ const createListElement = (comment) => {
   return elListItem;
 };
 
-const renderPost = async () => {
+const renderPost = async (post_id) => {
   // EDIT HERE
-};
+  let post = await getPost(2)
+  console.log(post);
+    // fetch(`https://jsonplaceholder.typicode.com/posts/${post_id}`)
+    //           .then(response => response.json())
+    //           .then(data => {
+    //               console.log(data);
+    //               console.log(data.title);
+    //           })
+    //           .catch(err => {
+    //               console.log(err);
+    //           })
+              
+    }
 
-renderPost();
+
+  renderPost();
